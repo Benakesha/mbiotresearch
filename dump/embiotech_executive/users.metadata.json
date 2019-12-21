@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"embiotech_executive.users"}],"uuid":"f9b176dec6d54049967d6276934a152e"}
