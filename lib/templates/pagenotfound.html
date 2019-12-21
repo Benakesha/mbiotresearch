@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <style>
+      body {
+        background-color: black;
+        font-family: "Courier New", Monospace;
+        color: lime;
+      }
+
+      .chardelay {
+        margin: 2em;
+        padding: 2em;
+        line-height: 1.5em;
+      }
+    </style>
+  </head>
+
+  <body></body>
+  <script>
+    var str = "404 Page Not Found.";
+    var obj = str;
+    var direction = "h";
+    var delay = 0;
+
+    /* Initializer */
+    function init() {
+      var el = "p";
+      var dly =
+        typeof delay === "number" && delay > 0
+          ? delay
+          : direction === "v"
+          ? 1000
+          : 150;
+      var newObj = [];
+      var elmt = document.createElement(el);
+      function splitStr(s) {
+        s.split("");
+        return s;
+      }
+      function writeIt(ele, object, index, dir) {
+        ele.innerHTML += object[index];
+        if (dir === "v") {
+          ele.innerHTML += "<br />";
+        } else {
+          return;
+        }
+      }
+      newObj = Array.isArray(obj) ? obj : splitStr(obj);
+      elmt.className += "chardelay";
+      document.body.appendChild(elmt);
+      for (var i = 0; i < newObj.length; i++) {
+        (function(e, o, x, d) {
+          setTimeout(function() {
+            writeIt(e, o, x, d);
+          }, x * dly);
+        })(elmt, newObj, i, direction);
+      }
+    }
+    init();
+  </script>
+</html>
